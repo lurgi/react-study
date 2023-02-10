@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Button from "./Button";
 
 function App() {
+  const [count,setCount] = useState(0);
+  const [keyword, setKeyword] = useState("");
+  const countUp = () => {setCount((prop)=>prop+1)};
+  const onChange = (event) =>{
+    setKeyword(event.target.value);
+  }
+  // console.log("SEARCH FOR", keyword)
+  const a = () => console.log("SEARCH FOR", keyword)
+  useEffect(a,[keyword])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input onChange={onChange} value={keyword} type="text" placeholder ="Search here..."></input>
+      {count}
+      <button onClick={countUp}>HI</button>
     </div>
   );
 }
