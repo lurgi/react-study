@@ -1,16 +1,23 @@
-import { useEffect, useState } from "react";
-import Button from "./Button";
+import{
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Detail from "./routes/Detail";
+import Home from "./routes/Home";
 
 function App() {
-  const [toDo, setToDO] = useState("");
-  const onChange = (event) => {
-    setToDO(event.target.value)
-  }
-  return (
-    <div>
-      <input onChange={onChange} type="text" placeholder="Write"/>
-    </div>
-  );
+  return <Router>
+      <Routes>
+        <Route path="/movie/:id" element={<Detail/>}>
+          
+        </Route>
+
+        <Route path="/" element={<Home/>}>
+          
+        </Route>
+      </Routes>
+    </Router>
 }
 
 export default App;
